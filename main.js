@@ -62,3 +62,87 @@ const pies = [
     iceCream: 'none',
   },
 ];
+
+
+const printToDom = (divId, textToPrint) => {   //textToPrint is string you want print in HTML
+  const selectedDiv = document.querySelector(divId);
+  selectedDiv.innerHTML = textToPrint;
+}
+//needs what id to target on DOM, and what to put on DOM (function above)
+
+
+// pieBuilder loops through array of pies
+const pieBuilder = (taco) => { //taco represents the pies array here
+  let domString = '';
+  for (let i = 0; i < taco.length; i++) {    // need to loop through elements of array to print each things from card (name, baking time...)
+    domString += `<div class="card my-2" style="width: 18rem;" id=${i}>
+    <div class="img-container" style="background-image: url('${taco[i].imageUrl}');"></div>
+    <div class="card-body">
+      <p class="card-text">${taco[i].name}</p>
+      <p class="card-text">${taco[i].ingredients}</p>
+      <p class="card-text">${taco[i].bakeTemp}</p>
+      <p class="card-text">${taco[i].drinkPairing}</p>
+      <p class="card-text">${taco[i].iceCream}</p>
+      <button type="button" class="btn btn-danger" id="${i}">Delete</button>
+    </div>
+  </div>`;
+  }
+  printToDom('#pies', domString);
+}
+
+const handleButtonClick = (e) => {
+  const buttonId = e.target.id;   
+  if (buttonId === 'Trinity') {
+    //DARK MODE
+    document.querySelector('body').style.backgroundColor = '#000';
+
+  } else if (buttonId === 'Doc') {
+    // LIGHT MODE
+    document.querySelector('body').style.backgroundColor = '#FFF';
+
+  } else if (buttonId === 'Aja') {
+    //MEDIUM MODE
+    document.querySelector('body').style.backgroundColor = '#808080';
+
+  } else if (buttonId === 'All') {
+    document.querySelector('body').style.backgroundColor = '#FFF';
+    //DEFAULT
+  }
+
+  //UPDATE THE PIES BASED ON BUTTON CLICKED
+  const selectedPies = [];
+  for (let i=0; i < pies.length; i++) {      //adding pies associated with specific instructor
+    if (pies[i].instructor === buttonId) {
+      selectedPies.push(pies[i]); 
+    }
+  } 
+
+  if (buttonId === 'All') {    //pieBuilder bc it holds all the pies (since we used it to create the array of pies)
+    pieBuilder(pies);
+  } else {
+    pieBuilder(selectedPies);     //only prints pies in selectPies
+  }
+
+
+
+
+}
+
+const buttonEvents = () => {
+  document.querySelector('#All').addEventListener('click', handleButtonClick); //addEventListener creates an event on DOM
+  document.querySelector('#Doc').addEventListener('click', handleButtonClick);
+  document.querySelector('#Aja').addEventListener('click', handleButtonClick);
+  document.querySelector('#Trinity').addEventListener('click', handleButtonClick);
+}
+
+allBtn.addEventListener('click', handleButtonClick => {
+  console.log(e.target.id);
+})
+
+
+const init = () => {
+  buttonEvents();
+  pieBuilder(pies);
+}
+
+init();
