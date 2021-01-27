@@ -1,75 +1,78 @@
-console.log('CONNECTED!');
+console.log("CONNECTED!");
 
 const pies = [
   {
-    name: 'Dutch Apple Pie',
-    ingredients: 'apples,sugar,butter,nutmeg,dutch people',
+    name: "Dutch Apple Pie",
+    ingredients: "apples,sugar,butter,nutmeg,dutch people",
     bakeTemp: 5000,
-    drinkPairing: 'Earl Grey Tea',
+    drinkPairing: "Earl Grey Tea",
     imageUrl:
-      'https://images-gmi-pmc.edge-generalmills.com/b6a2a4e7-73f5-4aec-9bb6-f2b5054d65e6.jpg',
-    instructor: 'Doc',
-    iceCream: 'Vanilla',
+      "https://images-gmi-pmc.edge-generalmills.com/b6a2a4e7-73f5-4aec-9bb6-f2b5054d65e6.jpg",
+    instructor: "Doc",
+    iceCream: "Vanilla",
   },
   {
-    name: 'Berry Pie',
-    ingredients: 'berries',
+    name: "Berry Pie",
+    ingredients: "berries",
     bakeTemp: 400,
-    drinkPairing: 'wine',
+    drinkPairing: "wine",
     imageUrl:
-      'https://tastesbetterfromscratch.com/wp-content/uploads/2015/11/Triple_Berry_Pie8.jpg',
-    instructor: 'Doc',
-    iceCream: 'banana',
+      "https://tastesbetterfromscratch.com/wp-content/uploads/2015/11/Triple_Berry_Pie8.jpg",
+    instructor: "Doc",
+    iceCream: "banana",
   },
   {
-    name: 'Pumpkin Pie',
-    ingredients: 'pumpkins, nutmeg, cinnamon, graham crackers, pilgrims',
+    name: "Pumpkin Pie",
+    ingredients: "pumpkins, nutmeg, cinnamon, graham crackers, pilgrims",
     bakeTemp: 42,
-    drinkPairing: 'egg nog',
+    drinkPairing: "egg nog",
     imageUrl:
-      'https://cf-images.us-east-1.prod.boltdns.net/v1/static/1033249144001/22a0c25d-2fee-415c-a4e7-91d008e276bb/a904f3e2-3cd9-40d6-ace9-f8dbd2d616cd/1280x720/match/image.jpg',
-    instructor: 'Aja',
-    iceCream: 'Vanilla',
+      "https://cf-images.us-east-1.prod.boltdns.net/v1/static/1033249144001/22a0c25d-2fee-415c-a4e7-91d008e276bb/a904f3e2-3cd9-40d6-ace9-f8dbd2d616cd/1280x720/match/image.jpg",
+    instructor: "Aja",
+    iceCream: "Vanilla",
   },
   {
-    name: 'Shoo Fly Pie',
-    ingredients: 'Molasses, nutmeg, cinnamon, butter, graham cracker ',
+    name: "Shoo Fly Pie",
+    ingredients: "Molasses, nutmeg, cinnamon, butter, graham cracker ",
     bakeTemp: 1234,
-    drinkPairing: 'Apple Cider',
+    drinkPairing: "Apple Cider",
     imageUrl:
-      'https://static01.nyt.com/images/2016/09/27/dining/27COOKING-SHOOFLY-PIE2/27COOKING-SHOOFLY-PIE2-articleLarge.jpg',
-    instructor: 'Aja',
-    iceCream: 'Coffee',
+      "https://static01.nyt.com/images/2016/09/27/dining/27COOKING-SHOOFLY-PIE2/27COOKING-SHOOFLY-PIE2-articleLarge.jpg",
+    instructor: "Aja",
+    iceCream: "Coffee",
   },
   {
-    name: 'Pecan Pie',
-    ingredients: 'Pecans, sugar, butter, flour',
+    name: "Pecan Pie",
+    ingredients: "Pecans, sugar, butter, flour",
     bakeTemp: 5000,
-    drinkPairing: 'Milk',
+    drinkPairing: "Milk",
     imageUrl:
-      'https://cookiesandcups.com/wp-content/uploads/2018/10/pecanpie-3.jpg',
-    instructor: 'Trinity',
-    iceCream: 'Vanilla',
+      "https://cookiesandcups.com/wp-content/uploads/2018/10/pecanpie-3.jpg",
+    instructor: "Trinity",
+    iceCream: "Vanilla",
   },
   {
-    name: 'Keylime Pie',
-    ingredients: 'lemons, sugar, butter, flour',
+    name: "Keylime Pie",
+    ingredients: "lemons, sugar, butter, flour",
     bakeTemp: 5000,
-    drinkPairing: 'Water',
+    drinkPairing: "Water",
     imageUrl:
-      'https://www.browneyedbaker.com/wp-content/uploads/2012/05/key-lime-pie-2-1200.jpg',
-    instructor: 'Trinity',
-    iceCream: 'none',
+      "https://www.browneyedbaker.com/wp-content/uploads/2012/05/key-lime-pie-2-1200.jpg",
+    instructor: "Trinity",
+    iceCream: "none",
   },
 ];
+
+// let filtered = false;
+// const selectedPies = [];
 
 const printToDom = (divId, textToPrint) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = textToPrint;
-}
+};
 
 const pieBuilder = (taco) => {
-  let domString = '';
+  let domString = "";
   for (let i = 0; i < taco.length; i++) {
     domString += `<div class="card my-2" style="width: 18rem;" id=${i}>
                     <div class="img-container" style="background-image: url('${taco[i].imageUrl}');"></div>
@@ -84,25 +87,25 @@ const pieBuilder = (taco) => {
                   </div>`;
   }
 
-  printToDom('#pies', domString);
-}
+  printToDom("#pies", domString);
+};
 
 const handleButtonClick = (e) => {
   const buttonId = e.target.id;
 
   // CHANGING BG COLOR BASED ON BUTTON CLICK
-  if (buttonId === 'Trinity') {
+  if (buttonId === "Trinity") {
     // DARK MODE
-    document.querySelector('body').style.backgroundColor = '#000';
-  } else if (buttonId === 'Doc') {
+    document.querySelector("body").style.backgroundColor = "#000";
+  } else if (buttonId === "Doc") {
     // LIGHT MODE
-    document.querySelector('body').style.backgroundColor = '#FFF';
-  } else if (buttonId === 'Aja') {
+    document.querySelector("body").style.backgroundColor = "#FFF";
+  } else if (buttonId === "Aja") {
     // MEDIUM MODE
-    document.querySelector('body').style.backgroundColor = '#808080';
-  } else if (buttonId === 'All') {
+    document.querySelector("body").style.backgroundColor = "#808080";
+  } else if (buttonId === "All") {
     // DEFAULT
-    document.querySelector('body').style.backgroundColor = 'rgb(175, 196, 175)';
+    document.querySelector("body").style.backgroundColor = "rgb(175, 196, 175)";
   }
 
   // UPDATE THE PIES BASED ON BUTTON CLICKED
@@ -114,15 +117,15 @@ const handleButtonClick = (e) => {
     }
   }
 
-  if (buttonId === 'All') {
+  if (buttonId === "All") {
     // PRINT ALL THE PIES
+    filtered = false;
     pieBuilder(pies);
   } else {
+    flitered = true;
     pieBuilder(selectedPies);
   }
-
-}
-
+};
 
 // C in CRUD: Create new Pies
 const getFormInfo = (e) => {
@@ -130,13 +133,13 @@ const getFormInfo = (e) => {
   e.preventDefault();
 
   // Grabbing all the values of the inputs/form fields
-  const name = document.querySelector('#name').value;
-  const ingredients = document.querySelector('#ingredients').value;
-  const bakeTemp = document.querySelector('#bakeTemp').value;
-  const drinkPairing = document.querySelector('#drinkPairing').value;
-  const imageUrl = document.querySelector('#imageUrl').value;
-  const instructor = document.querySelector('#instructor').value;
-  const iceCream = document.querySelector('#iceCream').value;
+  const name = document.querySelector("#name").value;
+  const ingredients = document.querySelector("#ingredients").value;
+  const bakeTemp = document.querySelector("#bakeTemp").value;
+  const drinkPairing = document.querySelector("#drinkPairing").value;
+  const imageUrl = document.querySelector("#imageUrl").value;
+  const instructor = document.querySelector("#instructor").value;
+  const iceCream = document.querySelector("#iceCream").value;
 
   // Short hand object notation to add values to obj
   const obj = {
@@ -147,7 +150,7 @@ const getFormInfo = (e) => {
     imageUrl,
     instructor,
     iceCream,
-  }
+  };
 
   // Pushing the new object up to the pies array
   pies.push(obj);
@@ -155,20 +158,38 @@ const getFormInfo = (e) => {
   // Rebuilding the DOM
   pieBuilder(pies);
 
-  document.querySelector('form').reset();
-}
+  document.querySelector("form").reset();
+};
+
+// D in CRUD
+const deletePie = (e) => {
+  //callback function to delete buttons
+  const targetType = e.target.type;
+  const targetId = e.target.id;
+
+  if (targetType === "button") {
+    // if type is button do this
+    pies.splice(targetId, 1);
+  }
+  pieBuilder(pies);
+};
 
 const buttonEvents = () => {
-  document.querySelector('#All').addEventListener('click', handleButtonClick);
-  document.querySelector('#Doc').addEventListener('click', handleButtonClick);
-  document.querySelector('#Aja').addEventListener('click', handleButtonClick);
-  document.querySelector('#Trinity').addEventListener('click', handleButtonClick);
-  document.querySelector('form').addEventListener('submit', getFormInfo);
-}
+  //this functions focusesc only on the click. all actions should be in there own callback functions
+  document.querySelector("#All").addEventListener("click", handleButtonClick);
+  document.querySelector("#Doc").addEventListener("click", handleButtonClick);
+  document.querySelector("#Aja").addEventListener("click", handleButtonClick);
+  document
+    .querySelector("#Trinity")
+    .addEventListener("click", handleButtonClick);
+  // targeting delete button
+  document.querySelector("#pies").addEventListener("click", deletePie);
+  document.querySelector("form").addEventListener("submit", getFormInfo);
+};
 
 const init = () => {
   buttonEvents();
   pieBuilder(pies);
-}
+};
 
 init();
