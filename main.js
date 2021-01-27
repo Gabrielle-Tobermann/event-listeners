@@ -70,19 +70,35 @@ const printToDom = (divId, textToPrint) => {
 
 const pieBuilder = (taco) => {
   let domString = '';
-  for (let i = 0; i < taco.length; i++) {
-    domString += `<div class="card my-2" style="width: 18rem;" id=${i}>
-                    <div class="img-container" style="background-image: url('${taco[i].imageUrl}');"></div>
-                    <div class="card-body">
-                      <p class="card-text">${taco[i].name}</p>
-                      <p class="card-text">${taco[i].ingredients}</p>
-                      <p class="card-text">${taco[i].bakeTemp}</p>
-                      <p class="card-text">${taco[i].drinkPairing}</p>
-                      <p class="card-text">${taco[i].iceCream}</p>
-                      <button type="button" class="btn btn-danger" id="${i}">Delete</button>
-                    </div>
-                  </div>`;
-  }
+  // for (let i = 0; i < taco.length; i++) {
+  //   domString += `<div class="card my-2" style="width: 18rem;" id=${i}>
+  //                   <div class="img-container" style="background-image: url('${taco[i].imageUrl}');"></div>
+  //                   <div class="card-body">
+  //                     <p class="card-text">${taco[i].name}</p>
+  //                     <p class="card-text">${taco[i].ingredients}</p>
+  //                     <p class="card-text">${taco[i].bakeTemp}</p>
+  //                     <p class="card-text">${taco[i].drinkPairing}</p>
+  //                     <p class="card-text">${taco[i].iceCream}</p>
+  //                     <button type="button" class="btn btn-danger" id="${i}">Delete</button>
+  //                   </div>
+  //                 </div>`;
+  // // }
+
+  taco.forEach((item, i) => {
+      domString += `<div class="card my-2" style="width: 18rem;" id=${i}>
+                      <div class="img-container" style="background-image: url('${taco[i].imageUrl}');"></div>
+                      <div class="card-body">
+                        <p class="card-text">${taco[i].name}</p>
+                        <p class="card-text">${taco[i].ingredients}</p>
+                        <p class="card-text">${taco[i].bakeTemp}</p>
+                        <p class="card-text">${taco[i].drinkPairing}</p>
+                        <p class="card-text">${taco[i].iceCream}</p>
+                        <button type="button" class="btn btn-danger" id="${i}">Delete</button>
+                      </div>
+                    </div>`;
+
+    
+  });
 
   printToDom('#pies', domString);
 }
